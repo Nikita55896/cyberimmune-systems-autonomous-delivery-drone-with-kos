@@ -128,10 +128,13 @@ int main(void) {
 
     while (true) {
         fprintf(stderr, ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
-        float dop;
-        int32_t sats;
-        getGpsInfo(dop, sats);
-        fprintf(stderr, "sats:[%d]")
+        int32_t latitude;
+        int32_t longitude;
+        int32_t altitude;
+        getCoords(latitude, longitude, altitude);
+        fprintf(stderr, "altitude:[%d]\n",altitude);
+        fprintf(stderr, "longitude:[%d]\n",longitude);
+        fprintf(stderr, "latitude:[%d]\n"),latitude;
         sleep(10);
 
     }
