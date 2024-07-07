@@ -23,6 +23,12 @@ int main(void) {
     }
 
     sensorThread = std::thread(getSensors);
+
+    while (!hasPosition()) {
+        fprintf(stderr, "[%s] Warning: Inconsistent coordinates are received. Trying again in 1s\n", ENTITY_NAME);
+        sleep(1);
+    }
+
     senderThread = std::thread(sendCoords);
 
     fprintf(stderr, "[%s] Info: Initialization is finished\n", ENTITY_NAME);
